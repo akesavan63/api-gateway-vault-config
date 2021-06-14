@@ -1,0 +1,14 @@
+version: '3'
+services:
+  vault:
+    image: vault:latest
+    volumes:
+      - ./scripts:/scripts
+    ports:
+      - 8200:8200
+    environment:
+      - VAULT_DEV_ROOT_TOKEN_ID=myroot
+      - VAULT_DEV_LISTEN_ADDRESS=0.0.0.0:8200
+      - VAULT_ADDR=http://localhost:8200
+    cap_add:
+      - IPC_LOCK

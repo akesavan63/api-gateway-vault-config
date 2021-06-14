@@ -1,0 +1,4 @@
+/.idea/
+/scripts/app/node_modules/
+node_modules
+/scripts/app/package-lock.json
