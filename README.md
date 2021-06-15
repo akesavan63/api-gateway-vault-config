@@ -20,7 +20,7 @@ Install docker and docker-compose on your machine.
   # NOTE: The full path is constructed as follows <SECRET_ENGINE>/data/<PUBLIC_SECRET_PATH>
   
   VAULT_SECRET_PATH_PRIVATE=<PRIVATE KEY PATH>
-  # e.g VAULT_SECRET_PATH_PUBLIC=authorizer/data/api-gateway/jwt/priv/active
+  # e.g VAULT_SECRET_PATH_PRIVATE=authorizer/data/api-gateway/jwt/priv/active
   # NOTE: The full path is constructed as follows <SECRET_ENGINE>/data/<PRIVATE_SECRET_PATH>
   
   # On docker deployment, you need to set the token manually, only for dev testing.
