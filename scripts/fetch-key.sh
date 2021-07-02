@@ -14,12 +14,16 @@ vault login myroot &> /dev/null
 echo "Creating Transit Engine"
 vault secrets enable -version=2 -path=authorizer kv
 
+echo "Creating a dummy entry"
+vault kv put authorizer/api-gateway/jwt/pub/active test="dummy"
+# The reason is: patch command requires on entry into value.
+
 cd $SCRIPT_DIR/app/keys
 for FILE in *;
 do
   echo $FILE;
   PUBLICKEYS=`cat $FILE`
-  vault kv put authorizer/api-gateway/jwt/pub/active $FILE="$PUBLICKEYS"
+  vault kv patch authorizer/api-gateway/jwt/pub/active $FILE="$PUBLICKEYS"
 done
 
 cat <<EOF > /home/vault/privatekey.properties
